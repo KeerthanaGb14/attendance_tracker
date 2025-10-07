@@ -4,15 +4,13 @@
     <h2>Add Attendance</h2>
     <form method="post">
         <label>Select Subject:</label>
-        <select name="subject" required>
+        <select name="subject">
             {% for s in subjects %}
             <option value="{{ s.subject }}">{{ s.subject }} ({{ s.type }})</option>
             {% endfor %}
         </select>
-
         <label>Hours Attended:</label>
-        <input type="number" name="attended" min="1" required>
-
+        <input type="number" name="attended" min="0" required>
         <button type="submit">Add Attendance</button>
     </form>
 </section>

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <section class="summary">
-    <h2>{{ user|capitalize }}'s Attendance Summary</h2>
+    <h2>Attendance Summary</h2>
     <table>
         <tr>
             <th>Subject</th>
@@ -12,6 +12,7 @@
             <th>Allowed Leave</th>
             <th>Remaining Leave</th>
             <th>Percentage</th>
+            <th>Edit</th>
             <th>Delete</th>
         </tr>
         {% for s in subjects %}
@@ -24,11 +25,11 @@
             <td>{{ s.allowed_leave }}</td>
             <td>{{ s.remaining_leave }}</td>
             <td>{{ s.percentage }}%</td>
-            <td><a href="{{ url_for('delete_subject', user=user, subject=s.subject) }}" class="delete-btn">Delete</a></td>
+            <td><a href="{{ url_for('edit_attendance', user=user, subject=s.subject) }}" class="edit-btn">✏️</a></td>
+            <td><a href="{{ url_for('delete_subject', user=user, subject=s.subject) }}" class="delete-btn">🗑️</a></td>
         </tr>
         {% endfor %}
     </table>
-    <a href="{{ url_for('download', user=user) }}" class="download-btn">Download CSV</a>
+    <a href="{{ url_for('download', user=user) }}" class="btn download-btn">Download CSV</a>
 </section>
 {% endblock %}
-

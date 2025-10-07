@@ -5,19 +5,15 @@
     <form method="post">
         <label>Subject Name:</label>
         <input type="text" name="subject" required>
-
-        <label>Course Type:</label>
-        <select name="type" required>
+        <label>Type:</label>
+        <select name="type">
             <option value="Theory">Theory</option>
             <option value="Lab">Lab</option>
         </select>
-
         <label>Credits:</label>
         <input type="number" name="credits" min="1" required>
-
         <label>Total Hours:</label>
         <input type="number" name="hours" min="1" required>
-
         <button type="submit">Add Subject</button>
     </form>
 </section>

@@ -2,10 +2,10 @@
 {% block content %}
 <section class="dashboard">
     <h2>Welcome, {{ user|capitalize }}</h2>
-    <div class="dashboard-cards">
-        <a href="{{ url_for('add_subject', user=user) }}" class="dash-card">Add Subject</a>
-        <a href="{{ url_for('add_attendance', user=user) }}" class="dash-card">Add Attendance</a>
-        <a href="{{ url_for('summary', user=user) }}" class="dash-card">View Summary</a>
+    <div class="actions">
+        <a href="{{ url_for('add_subject', user=user) }}" class="btn">Add Subject</a>
+        <a href="{{ url_for('add_attendance', user=user) }}" class="btn">Add Attendance</a>
+        <a href="{{ url_for('summary', user=user) }}" class="btn">View Summary</a>
     </div>
 </section>
 {% endblock %}
