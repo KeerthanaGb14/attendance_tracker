@@ -2,34 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Attendance Tracker</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <!-- Header with logo and user info -->
-    <header>
-        <div class="logo">Attendance Tracker</div>
-        <div class="user-info">
-            {% if user %}
-            <div class="user-circle">{{ user[0]|upper }}</div>
-            <span>{{ user|capitalize }}</span>
-            {% endif %}
-        </div>
-    </header>
-
-    <!-- Main content -->
-    <main>
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                <div class="flash-messages">
-                {% for category, msg in messages %}
-                    <div class="flash {{ category }}">{{ msg }}</div>
-                {% endfor %}
-                </div>
-            {% endif %}
-        {% endwith %}
-        {% block content %}{% endblock %}
-    </main>
+<header>
+    <div class="logo">Attendance Tracker</div>
+    <div class="user-info">
+        {% if user %}
+        <div class="user-circle">{{ user[0]|upper }}</div>
+        <span>{{ user|capitalize }}</span>
+        {% endif %}
+    </div>
+</header>
+<main>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+            {% for category, message in messages %}
+                <div class="flash {{ category }}">{{ message }}</div>
+            {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+</main>
 </body>
 </html>

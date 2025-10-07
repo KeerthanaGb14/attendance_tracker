@@ -1,15 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
-<section class="card">
+<section class="form-section">
     <h2>Add New Subject</h2>
     <form method="post">
-        <input type="text" name="subject" placeholder="Subject Name" required>
-        <input type="number" step="0.5" name="credits" placeholder="Credits" required>
-        <select name="course_type">
-            <option value="theory">Theory</option>
-            <option value="lab">Lab</option>
+        <label>Subject Name:</label>
+        <input type="text" name="subject" required>
+
+        <label>Course Type:</label>
+        <select name="type" required>
+            <option value="Theory">Theory</option>
+            <option value="Lab">Lab</option>
         </select>
-        <button type="submit" class="btn-primary">Add Subject</button>
+
+        <label>Credits:</label>
+        <input type="number" name="credits" min="1" required>
+
+        <label>Total Hours:</label>
+        <input type="number" name="hours" min="1" required>
+
+        <button type="submit">Add Subject</button>
     </form>
 </section>
 {% endblock %}

@@ -1,12 +1,14 @@
 {% extends "base.html" %}
-
 {% block content %}
-<section class="card">
-    <h2>Select User</h2>
-    <ul class="user-list">
+<section class="user-selection">
+    <h2>Select Your Profile</h2>
+    <div class="user-cards">
         {% for u in users %}
-        <li><a href="{{ url_for('dashboard', user=u) }}">{{ u|capitalize }}</a></li>
+        <a href="{{ url_for('dashboard', user=u) }}" class="user-card">
+            <div class="user-circle">{{ u[0]|upper }}</div>
+            <span>{{ u|capitalize }}</span>
+        </a>
         {% endfor %}
-    </ul>
+    </div>
 </section>
 {% endblock %}
