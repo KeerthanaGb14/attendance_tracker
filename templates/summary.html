@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card">
+    <h2>Subjects Summary</h2>
+    <table>
+        <tr>
+            <th>Subject</th><th>Type</th><th>Credits</th><th>Total Hours</th><th>Leave Taken</th><th>Max Leave</th><th>Remaining</th><th>Action</th>
+        </tr>
+        {% for s in subjects %}
+        <tr>
+            <td>{{ s.subject }}</td>
+            <td>{{ s.course_type|capitalize }}</td>
+            <td>{{ s.credits }}</td>
+            <td>{{ s.total_hours }}</td>
+            <td>{{ s.leave_taken }}</td>
+            <td>{{ s.max_leave }}</td>
+            <td>{{ s.remaining }}</td>
+            <td>
+                <a href="{{ url_for('delete_subject',user=user,subject=s.subject,ctype=s.course_type) }}" class="btn-danger" onclick="return confirm('Delete this subject?');">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h3>Attendance Records</h3>
+    {% for r in records %}
+    <div class="record">
+        <strong>{{ r.date }}</strong> - {{ r.subject }}: {{ r.leave_hours }} hours
+        <a href="{{ url_for('edit_attendance',user=user,index=loop.index0) }}" class="btn-warning">✏️</a>
+        <a href="{{ url_for('delete_attendance',user=user,index=loop.index0) }}" class="btn-danger" onclick="return confirm('Delete?');">🗑️</a>
+    </div>
+    {% endfor %}
+    <a href="{{ url_for('download_csv',user=user) }}" class="btn-primary">Download CSV</a>
+</section>
+{% endblock %}

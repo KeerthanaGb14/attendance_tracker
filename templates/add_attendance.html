@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card">
+    <h2>Add Attendance</h2>
+    <form method="post">
+        <label>Subject:</label>
+        <select name="subject" required>
+            {% for s in subjects %}
+            <option value="{{ s.subject }}">{{ s.subject }} ({{ s.course_type|capitalize }})</option>
+            {% endfor %}
+        </select>
+        <label>Leave Hours:</label>
+        <input type="number" step="0.5" name="leave_hours" required>
+        <label>Date:</label>
+        <input type="date" name="date">
+        <label>Note:</label>
+        <input type="text" name="note">
+        <button type="submit" class="btn-primary">Add Attendance</button>
+    </form>
+</section>
+{% endblock %}

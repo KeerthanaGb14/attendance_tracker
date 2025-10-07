@@ -1,0 +1,9 @@
+subject,credits,course_type,total_hours,leave_taken
+Networks,2.0,lab,60.0,7.0
+OS,3.0,theory,45.0,0.0
+OS,2.0,lab,60.0,0.0
+Data Mining,3.0,theory,45.0,0.0
+IOC,2.0,theory,30.0,0.0
+VT,3.0,theory,45.0,0.0
+EED,3.0,theory,45.0,0.0
+Networks,3.0,theory,45.0,0.0

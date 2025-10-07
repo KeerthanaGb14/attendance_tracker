@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="card">
+    <h2>Select User</h2>
+    <ul class="user-list">
+        {% for u in users %}
+        <li><a href="{{ url_for('dashboard', user=u) }}">{{ u|capitalize }}</a></li>
+        {% endfor %}
+    </ul>
+</section>
+{% endblock %}

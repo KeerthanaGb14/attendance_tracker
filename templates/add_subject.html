@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card">
+    <h2>Add New Subject</h2>
+    <form method="post">
+        <input type="text" name="subject" placeholder="Subject Name" required>
+        <input type="number" step="0.5" name="credits" placeholder="Credits" required>
+        <select name="course_type">
+            <option value="theory">Theory</option>
+            <option value="lab">Lab</option>
+        </select>
+        <button type="submit" class="btn-primary">Add Subject</button>
+    </form>
+</section>
+{% endblock %}
